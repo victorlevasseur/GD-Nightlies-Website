@@ -10,10 +10,15 @@ function endsWith( $str, $sub )
 <html>
     <head>
         <meta charset="UTF-8">
+        <link rel="stylesheet" type="text/css" href="style.css">
+        <link href="http://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
         <title>GDevelop nightlies</title>
     </head>
     <body>
-        <h1>GDevelop nightlies</h1>
+        <div class="titlebox">
+            <h1>GDevelop nightlies</h1>
+        </div>
         <p>
             GDevelop nightlies are built from the source repository of GDevelop.
             A new nightly build is produced each day.
@@ -23,7 +28,9 @@ function endsWith( $str, $sub )
                 Please note that these versions may be instable or not work at all.
             </strong>
         </p>
-        <h2>Windows</h2>
+        <div class="titlebox">
+            <h2>Windows</h2>
+        </div>
         <p>
             Here is the list of the available nightlies of GDevelop. They are sorted
             from the newest to the oldest one.
@@ -48,7 +55,9 @@ function endsWith( $str, $sub )
             }
             ?>
         </ul>
-        <h2>Linux</h2>
+        <div class="titlebox">
+            <h2>Linux</h2>
+        </div>
         <p>
             <em>
                 Not available yet!
