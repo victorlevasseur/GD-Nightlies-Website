@@ -35,8 +35,7 @@ function endsWith( $str, $sub )
 
             foreach( $files as $file )
             {
-                $matches = [];
-                if( preg_match( $file, "^gdevelop-([0-9]{2})([0-9]{2})([0-9]{2})\\.exe$", $matches ) == 1 )
+                if( preg_match( "^gdevelop-([0-9]{2})([0-9]{2})([0-9]{2})\.exe$", $file, $matches ) == 1 )
                 {
                     ?>
                     <li>
