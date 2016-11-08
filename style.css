@@ -28,3 +28,11 @@ p, ul {
     margin-left: auto;
     margin-right: auto;
 }
+
+a {
+    color: white;
+}
+
+a:visited {
+    color: rgb(220, 220, 220);
+}
