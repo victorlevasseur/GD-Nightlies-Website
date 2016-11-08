@@ -35,11 +35,13 @@ function endsWith( $str, $sub )
 
             foreach( $files as $file )
             {
-                if( preg_match( "^gdevelop-([0-9]{2})([0-9]{2})([0-9]{2})\.exe$", $file, $matches ) == 1 )
+                if( preg_match( "/^gdevelop-([0-9]{2})([0-9]{2})([0-9]{2})\\.exe$/", $file, $matches ) == 1 )
                 {
                     ?>
                     <li>
-                        GDevelop built on the <?php echo $matches[3] + "-" + $matches[2] + "-" + $matches[1]; ?>
+                        GDevelop built on the <?php echo $matches[3]."-".$matches[2]."-".$matches[1]; ?>:
+                        <a href="<?php echo "files/".$matches[0]; ?>">Installer</a>
+                        <a href="<?php echo "files/gdevelop-".$matches[1].$matches[2].$matches[3].".7z"; ?>">Archive</a>
                     </li>
                     <?php
                 }
