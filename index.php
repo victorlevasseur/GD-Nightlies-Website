@@ -20,6 +20,9 @@ function endsWith( $str, $sub )
             <h1>GDevelop nightlies</h1>
         </div>
         <p>
+            <a class="btn" href="http://www.compilgames.net">🠈 Back to the website</a>
+        </p>
+        <p>
             GDevelop nightlies are built from the source repository of GDevelop.
             A new nightly build is produced each day.
         </p>
@@ -46,9 +49,9 @@ function endsWith( $str, $sub )
                 {
                     ?>
                     <li>
-                        GDevelop built on the <?php echo $matches[3]."-".$matches[2]."-".$matches[1]; ?>:
-                        <a href="<?php echo "files/".$matches[0]; ?>">Installer</a>
-                        <a href="<?php echo "files/gdevelop-".$matches[1].$matches[2].$matches[3].".7z"; ?>">Archive</a>
+                        <strong>GDevelop</strong> built on the <strong><?php echo $matches[3]."-".$matches[2]."-".$matches[1]; ?></strong>:
+                        <a class="btn" href="<?php echo "files/".$matches[0]; ?>">Installer (.exe)</a>
+                        <a class="btn" href="<?php echo "files/gdevelop-".$matches[1].$matches[2].$matches[3].".7z"; ?>">Archive (.7z)</a>
                     </li>
                     <?php
                 }
