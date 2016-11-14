@@ -1,5 +1,7 @@
 <?php
 
+include_once "github.php";
+
 function endsWith( $str, $sub )
 {
    return ( substr( $str, strlen( $str ) - strlen( $sub ) ) === $sub );
@@ -38,7 +40,13 @@ function endsWith( $str, $sub )
             Here is the list of the available nightlies of GDevelop. They are sorted
             from the newest to the oldest one.
         </p>
-        <ul>
+        <table>
+            <thead>
+                <th>Date</th>
+                <th>Installer (.exe)</th>
+                <th>Archive (.7z)</th>
+                <th>Info</th>
+            </thead>
             <?php
             $files = scandir( "files", SCANDIR_SORT_DESCENDING );
             $nightly_installer = [];
@@ -48,16 +56,35 @@ function endsWith( $str, $sub )
                 if( preg_match( "/^gdevelop-([0-9]{2})([0-9]{2})([0-9]{2})\\.exe$/", $file, $matches ) == 1 )
                 {
                     ?>
-                    <li>
-                        <strong>GDevelop</strong> built on the <strong><?php echo $matches[3]."-".$matches[2]."-".$matches[1]; ?></strong>:
-                        <a class="btn" href="<?php echo "files/".$matches[0]; ?>">Installer (.exe)</a>
-                        <a class="btn" href="<?php echo "files/gdevelop-".$matches[1].$matches[2].$matches[3].".7z"; ?>">Archive (.7z)</a>
-                    </li>
+                    <tr>
+                        <td><?php echo $matches[3]."-".$matches[2]."-".$matches[1]; ?></td>
+                        <td>
+                            <a class="download-link" href="<?php echo "files/".$matches[0]; ?>">
+                                <?php echo $matches[0] ?>
+                            </a>
+                        </td>
+                        <td>
+                            <a class="download-link" href="<?php echo "files/gdevelop-".$matches[1].$matches[2].$matches[3].".7z"; ?>">
+                                <?php echo "gdevelop-".$matches[1].$matches[2].$matches[3].".7z" ?>
+                            </a>
+                        </td>
+                        <td>
+                            <?php
+                            $changes = get_commits_of_build($matches[0]);
+                            if($changes == FALSE)
+                                echo 'Unable to retrieve the changes!';
+                            else if(count($changes) > 0)
+                            {
+                                echo count($changes)." ".(count($changes) > 1 ? "changes" : "change");
+                            }
+                            ?>
+                        </td>
+                    </tr>
                     <?php
                 }
             }
             ?>
-        </ul>
+        </table>
         <div class="titlebox">
             <h2>Linux</h2>
         </div>

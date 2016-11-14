@@ -23,10 +23,14 @@ h2 {
     text-align: center;
 }
 
-p, ul {
+p, ul, table {
     max-width: 1000px;
     margin-left: auto;
     margin-right: auto;
+}
+
+table, td, th {
+    padding: 5px;
 }
 
 a {
