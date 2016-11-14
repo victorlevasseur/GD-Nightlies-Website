@@ -1,12 +1,5 @@
 <?php
 
-include_once "github.php";
-
-function endsWith( $str, $sub )
-{
-   return ( substr( $str, strlen( $str ) - strlen( $sub ) ) === $sub );
-}
-
 ?>
 
 <html>
@@ -69,19 +62,7 @@ function endsWith( $str, $sub )
                             </a>
                         </td>
                         <td>
-                            <?php
-                            $changes = get_commits_of_build($matches[0]);
-                            if($changes == FALSE)
-                                echo 'Unable to retrieve the changes!';
-                            else if(count($changes) > 0)
-                            {
-                                echo count($changes)." ".(count($changes) > 1 ? "changes" : "change");
-                            }
-                            else
-                            {
-                                echo "No changes!";
-                            }
-                            ?>
+                            <a href="changelog.php?build=<?php echo urlencode($matches[0]) ?>">See the changelog</a>
                         </td>
                     </tr>
                     <?php

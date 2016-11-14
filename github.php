@@ -2,7 +2,8 @@
 
 function get_commits_of_build($installer_filename)
 {
-    if( preg_match( "/^gdevelop-([0-9]{2})([0-9]{2})([0-9]{2})\\.exe$/", $installer_filename, $matches ) != 1 )
+    if( file_exists("files/".$installer_filename) == FALSE ||
+        preg_match( "/^gdevelop-([0-9]{2})([0-9]{2})([0-9]{2})\\.exe$/", $installer_filename, $matches ) != 1 )
         return FALSE; //This is not a valid installer
 
     // Processing the dates
