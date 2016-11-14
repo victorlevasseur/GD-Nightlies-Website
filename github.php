@@ -34,7 +34,7 @@ function get_commits_of_build($installer_filename)
     // Decode the JSON
     $commits_list = json_decode($commits_list_json, TRUE);
     if($commits_list == NULL)
-        return FALSE; //Invalid JSON
+        return []; //Invalid JSON
 
     return $commits_list;
 }

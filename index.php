@@ -77,6 +77,10 @@ function endsWith( $str, $sub )
                             {
                                 echo count($changes)." ".(count($changes) > 1 ? "changes" : "change");
                             }
+                            else
+                            {
+                                echo "No changes!";
+                            }
                             ?>
                         </td>
                     </tr>
